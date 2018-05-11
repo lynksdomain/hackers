@@ -1,0 +1,16 @@
+PODS:
+  - GhostTypewriter (1.0.0)
+
+DEPENDENCIES:
+  - GhostTypewriter
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - GhostTypewriter
+
+SPEC CHECKSUMS:
+  GhostTypewriter: 70c6f827ada4716bda0550046b01bf783331ee00
+
+PODFILE CHECKSUM: 2546b63df520db6ad528d4e00e0c6bc3888ad83a
+
+COCOAPODS: 1.5.0
