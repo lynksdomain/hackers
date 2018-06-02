@@ -11,6 +11,5 @@ import GhostTypewriter
 
 class subTerminalTableViewCell: UITableViewCell {
     @IBOutlet weak var subTerminalText: TypewriterLabel!
-    
     @IBOutlet weak var nextCutsceneButton: UIButton!
 }

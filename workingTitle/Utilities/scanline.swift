@@ -41,7 +41,7 @@ class Scanline {
         scanLine.layer.shadowOffset = CGSize.zero
         scanLine.layer.masksToBounds = false
         scanlineStartY = 0
-        scanlineStopY = screen.frame.size.height - topBottomMargin
+        scanlineStopY = screen.frame.size.height
         scanLine.frame  = scanlineRect
         scanLine.center = CGPoint(x: scanLine.center.x, y: scanlineStartY)
         scanLine.isHidden = false

@@ -17,6 +17,7 @@ class LevelSelectViewController: UIViewController {
     @IBOutlet weak var terminalBackground: UIImageView!
     
     let scanline = Scanline()
+    let userDefaults = UserDefaultHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,13 @@ class LevelSelectViewController: UIViewController {
         scanline.addScanline(to: terminalBackground)
         self.levelButtons.forEach(){addGlow(object: $0)}
         self.labelCollection.forEach(){addGlow(object: $0)}
+        setLevels()
     }
     
-   
+    @IBAction func level0pressed(_ sender: UIButton) {
+        print("testing")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? HackViewController{
             let selectedButton = sender as? UIButton
@@ -52,6 +57,14 @@ extension LevelSelectViewController{
         object.layer.shadowOpacity = 1
         object.layer.shadowOffset = CGSize.zero
         object.layer.masksToBounds = false
-        
+    }
+    
+    func setLevels() {
+       let latestLevel = userDefaults.levelsUnlocked()
+        for i in 0...latestLevel {
+            let button = levelButtons[i]
+            button.isEnabled = true
+            button.alpha = 1.0
+        }
     }
 }

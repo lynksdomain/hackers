@@ -16,7 +16,7 @@ class MainMenuViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        MusicHelper.manager.playMusic()
+        MusicHelper.manager.playMainMenuTheme()
         titleBlink()
         objectsForGlow = [startButton,startLabel,settingsLabel,settingsButtons,titleLabel]
         objectsForGlow.forEach(){addGlow(object: $0)}

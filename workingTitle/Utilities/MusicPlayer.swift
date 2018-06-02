@@ -33,6 +33,25 @@ class MusicHelper {
         }
     }
     
+    func playMainMenuTheme() {
+        guard let path = Bundle.main.url(forResource: "mainMenuTheme", withExtension: ".mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try AVAudioPlayer(contentsOf: path, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.numberOfLoops = -1
+            player.prepareToPlay()
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
     
     func stopMusic() {
         guard let player = player else { return }
