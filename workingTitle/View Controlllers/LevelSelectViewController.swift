@@ -28,6 +28,9 @@ class LevelSelectViewController: UIViewController {
    
     
     override func viewWillAppear(_ animated: Bool) {
+        if !MusicHelper.manager.mainMenuPlaying {
+            MusicHelper.manager.playMainMenuTheme()
+        }
         terminalBackground.layoutIfNeeded()
         terminalBackground.addShadow(to: [.top,.left,.right,.bottom], radius: 10.0)
         scanline.addScanline(to: terminalBackground)

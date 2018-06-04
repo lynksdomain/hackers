@@ -51,6 +51,7 @@ class HackGameViewController: UIViewController {
         }
     }
     
+   
     
     
     func loadGame() {
@@ -76,6 +77,11 @@ class HackGameViewController: UIViewController {
             hangmanGame?.playerTextField.backgroundColor = .black
             hangmanGame?.wordToSolveLabel.glow(glowIntensity: .high)
             hangmanGame?.wordToSolveLabel.text = self.hangmanBrain?.setHangManWord()
+            if (self.mainViewController?.levelBrain?.levelZeroDeveloperModeIsOn())! {
+                hangmanGame?.developerModeLabel.isHidden = false
+                hangmanGame?.wordSolutionLabel.isHidden = false
+                hangmanGame?.wordSolutionLabel.text = "Word to Solve: \(self.hangmanBrain!.currentWordToSolve())"
+            }
             
         default:
             print("v")
@@ -111,6 +117,26 @@ extension HackGameViewController: UITextFieldDelegate {
 
 
 extension HackGameViewController: HangmanBrainDelegate {
+    func loadNewWord(wordToSet: String, numberOfWins: String) {
+        hangmanGame?.wordSolutionLabel.text = "Word to Solve: \(self.hangmanBrain!.currentWordToSolve())"
+        hangmanGame?.wordToSolveLabel.text = wordToSet
+        hangmanGame?.numberOfWinsLabel.text = numberOfWins
+    }
+    
+    func win() {
+        self.hangmanGame?.playerTextField.isEnabled = false
+        MusicHelper.manager.playAccess()
+        self.hangmanGame?.failedLabel.text = "UNLOCKED"
+        self.hangmanGame?.failedLabel.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.dismiss(animated: true) {
+                self.mainViewController?.levelBrain?.hangmanDismissed()
+                self.mainViewController?.levelBrain?.hangmanGameWon()
+            }
+        }
+    }
+    
+    
     func failed() {
         self.hangmanGame?.playerTextField.isEnabled = false
         self.hangmanGame?.imageView.image = #imageLiteral(resourceName: "hangmanLose")
@@ -128,6 +154,7 @@ extension HackGameViewController: HangmanBrainDelegate {
     
     func newDisplay(stringDisplay: String) {
         self.hangmanGame?.wordToSolveLabel.text = stringDisplay
+        hangmanGame?.wordSolutionLabel.text = "Word to Solve: \(self.hangmanBrain!.currentWordToSolve())"
     }
 }
 

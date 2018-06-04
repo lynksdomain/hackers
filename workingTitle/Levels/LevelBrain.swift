@@ -9,7 +9,7 @@
 import UIKit
 
 enum gameState {
-    case unscramble, hacking, cutscene, instruction, hackingInstruction
+    case unscramble, hacking, cutscene, instruction, hackingInstruction, singleOutro
 }
 
 enum levels: String {
@@ -54,6 +54,7 @@ protocol LevelBrainDelegate: class {
     func loadHackingGame()
     func loadSourceCode(sourceCode: String, clickableVariables: [String])
     func enableSourceCodeButton()
+    func hangmanGameWon(outro: String)
 }
 
 
@@ -67,7 +68,10 @@ class LevelBrain {
     }
     
     //Current Level Variables
+    public var currentSourceCode: NSMutableAttributedString?
+    public var loadedSourceData = false
     private var currentLevel: Level?
+    private var levelZeroDeveloperMode: Bool?
     private var levelNumber: Int
     private lazy var levels = [tutorialLevel,levelOne]
     var unscrambleV = unscrambleView()
@@ -87,6 +91,7 @@ class LevelBrain {
     private var fileOrder = [[String]]()
     private var hackViewToLoad: UIView?
     private var hangmanLoaded = false
+    private var hangmanSourceLoaded = false
     private var levelZeroSourceCode = """
 developerMode = false
 hangman_border_color = .magenta
@@ -107,8 +112,8 @@ hangman_difficulty = .hard
                                         instructions:  ["Find and tap the word in the scrambled puzzle below",
                                                         "Great now press the arrow to gain access",
                                                         "Now you have access to the root files and the main lock. Tap on the lock to see the challenge",
-                                                        "Haha, pretty impossible right? Click on the source code file and in the next window click on the developerMode variable and set to true",
-                                                        "Remmeber yet? try main.back() to go back",
+                                                        "Pretty impossible right? Click on the source code file and in the next window see what you can change",
+                                                        "now we can test your changes to the lock",
                                                         "dope, we are getting somewhere. Now find me the file dontOpenMe.text",
                                                         "ah, now lets do main.scan, click the file, and run", "presto, you did it!"],
                                         instructionButtons: ["main","nav","music","main.nav.music","main.back()", "main.nav.topSecret", "main.scan.dontOpenMe.txt"],
@@ -125,7 +130,7 @@ hangman_difficulty = .hard
                                                           "ds003.png":"spicy",
                                                           "default":"nothing of value here..."],
                                         unscrambleWinWords: ["there","is", "no","spoon"],
-                                        levelName: .zero, sourceCode: [self.levelZeroSourceCode], clickableVariables: ["developerMode"])
+                                        levelName: .zero, sourceCode: [self.levelZeroSourceCode], clickableVariables: ["developerMode"], outro: ["Well your skills are still there. Next time, you'll be alone .... and timed"])
     
    lazy var levelOne = Level.init(cutscenes: ["welcome to level one"],
                                    state: .cutscene,
@@ -136,7 +141,7 @@ hangman_difficulty = .hard
                                    subFolders: [:],
                                    scannedResponse: [:],
                                    unscrambleWinWords: [],
-                                   levelName: .one, sourceCode: ["developerMode"], clickableVariables: [])
+                                   levelName: .one, sourceCode: ["developerMode"], clickableVariables: [], outro: [])
     
     
     
@@ -154,6 +159,15 @@ hangman_difficulty = .hard
                 self.currentGameState = .unscramble
             }
             self.delegate?.loadCutscene(cutsceneString: cutsceneString!)
+        }
+    }
+    
+    public func loadLevelZeroSourceCode(developerMode: Bool) {
+        if developerMode {
+            self.levelZeroDeveloperMode = true
+            
+        } else {
+            self.levelZeroDeveloperMode = false
         }
     }
     
@@ -183,10 +197,18 @@ hangman_difficulty = .hard
     public func mainScreenNowOn() { self.mainScreenOn = true }
     public func checkIfunscrambleGameOn() -> Bool { return self.unscrambleGameOn }
     public func unscrambleGameNowOn() { self.unscrambleGameOn = true }
-    public func levelName() -> levels {
-        return (currentLevel?.levelName)!
-    }
+    public func levelName() -> levels { return (currentLevel?.levelName)! }
 
+    public func hangmanGameWon() {
+        self.currentGameState = .singleOutro
+        self.delegate?.hangmanGameWon(outro: (self.currentLevel?.outro[0])!)
+    }
+    
+    public func levelZeroDeveloperModeIsOn() -> Bool {
+        guard let status = levelZeroDeveloperMode else { return false }
+        return status
+    }
+    
     private func loadInstructions() {
         if currentInstructionIndex < (currentLevel?.instructions!.count)! {
         let instruction = currentLevel?.instructions![currentInstructionIndex]
@@ -219,7 +241,6 @@ hangman_difficulty = .hard
         }
         
     }
-    
     
     
     
@@ -307,6 +328,13 @@ hangman_difficulty = .hard
         if !hangmanLoaded {
             hangmanLoaded = true
             self.delegate?.enableSourceCodeButton()
+            loadInstructions()
+        }
+    }
+    
+    func hangmanSourceCodeDismissed() {
+        if !hangmanSourceLoaded {
+            hangmanSourceLoaded = true
             loadInstructions()
         }
     }

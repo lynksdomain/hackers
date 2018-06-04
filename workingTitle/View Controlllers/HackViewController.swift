@@ -149,6 +149,13 @@ class HackViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         } else if self.levelBrain?.checkCurrentGameState() == .hackingInstruction {
             self.levelBrain?.loadUnscrambleGame()
+        } else if self.levelBrain?.checkCurrentGameState() == .singleOutro {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "gameResult") as? GameResultViewController
+                vc?.modalPresentationStyle = .overCurrentContext
+                self.present(vc!, animated: true, completion: nil)
+            }
         }
     }
     
@@ -190,6 +197,10 @@ extension HackViewController {
 
 
 extension HackViewController: LevelBrainDelegate {
+    func hangmanGameWon(outro: String) {
+        self.makeBotTalk(speech: outro)
+    }
+    
     
     func enableSourceCodeButton() {
         let vc = self.controlInternalTerminal.subviews[0] as? levelZeroHackView

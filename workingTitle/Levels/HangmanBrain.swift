@@ -11,10 +11,12 @@ import Foundation
 protocol HangmanBrainDelegate: class {
     func newDisplay(stringDisplay: String)
     func failed()
+    func win()
+    func loadNewWord(wordToSet: String, numberOfWins: String)
 }
 
 class HangmanBrain {
-    private let wordBank = ["test","code","cake","friendship","mercy"]
+    private let wordBank = ["test","code","cake","artsy","dope"]
     private var wordsChosen = [String]()
     private var numberOfWins = 0
     weak var delegate: HangmanBrainDelegate?
@@ -28,12 +30,12 @@ class HangmanBrain {
             wordToSet = wordBank[randNum]
         }
         wordsChosen.append(wordToSet)
-        print(wordToSet)
         var underscoreString = String.init(repeating: "_ ", count: wordToSet.count)
         underscoreString.removeLast()
         return underscoreString
     }
     
+    func currentWordToSolve() -> String { return wordsChosen.last! }
     
     func checkLetter(letter:String){
         let currentWord = wordsChosen.last
@@ -49,6 +51,15 @@ class HangmanBrain {
             }
             newDisplay.removeLast()
             self.delegate?.newDisplay(stringDisplay: newDisplay)
+            if !newDisplay.contains("_") {
+                self.rightLettersGuessed.removeAll()
+                self.numberOfWins += 1
+                if numberOfWins == 2 {
+                    self.delegate?.win()
+                }
+                self.delegate?.loadNewWord(wordToSet: setHangManWord(), numberOfWins: "Number of Wins: \(self.numberOfWins)")
+            
+            }
         } else {
             self.delegate?.failed()
         }
