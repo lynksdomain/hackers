@@ -21,6 +21,7 @@ required init?(coder aDecoder: NSCoder) {
 }
 
     
+    @IBOutlet weak var failedLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
     

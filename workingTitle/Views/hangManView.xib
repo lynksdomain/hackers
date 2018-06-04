@@ -15,6 +15,7 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="057-36-3ms"/>
                 <outlet property="developerModeLabel" destination="a3P-UN-q5F" id="JV6-iV-9Pq"/>
+                <outlet property="failedLabel" destination="MY7-it-4U5" id="HuH-rI-a29"/>
                 <outlet property="guessLeftLabel" destination="RKt-UX-vTq" id="zHh-ST-AI6"/>
                 <outlet property="imageView" destination="WtE-br-k6S" id="aPe-Ja-JfP"/>
                 <outlet property="instructionLabel" destination="HFp-1D-W8j" id="pFR-dU-YZ9"/>
@@ -127,6 +128,21 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="labelborderGlow" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAILED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY7-it-4U5" customClass="CustomHackingUILabel" customModule="workingTitle" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="235" width="320" height="78.5"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="69"/>
+                                            <color key="textColor" red="1" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="labelborderGlow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="labelborderColor">
+                                                    <color key="value" red="1" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="labelborderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sAs-Oj-WGZ" firstAttribute="top" secondItem="Ly3-qd-EFj" secondAttribute="bottom" constant="11" id="0LL-1Z-klM"/>
@@ -139,17 +155,21 @@
                                         <constraint firstItem="Ly3-qd-EFj" firstAttribute="top" secondItem="9P2-yc-Jyf" secondAttribute="bottom" constant="33" id="Hof-qd-ZcC"/>
                                         <constraint firstAttribute="trailing" secondItem="acR-SG-Xha" secondAttribute="trailing" constant="8" id="ITm-Zt-EXd"/>
                                         <constraint firstItem="Hh0-BG-zbO" firstAttribute="top" secondItem="a3P-UN-q5F" secondAttribute="bottom" constant="8" id="Lkm-Ql-m7a"/>
+                                        <constraint firstItem="MY7-it-4U5" firstAttribute="centerY" secondItem="RAq-3v-qEr" secondAttribute="centerY" id="O4M-Je-tBO"/>
                                         <constraint firstItem="5JZ-W2-qUo" firstAttribute="width" secondItem="RAq-3v-qEr" secondAttribute="width" multiplier="0.5" id="OfC-AM-alU"/>
                                         <constraint firstItem="5JZ-W2-qUo" firstAttribute="height" secondItem="RAq-3v-qEr" secondAttribute="height" multiplier="0.4" id="Qbc-Az-aZC"/>
                                         <constraint firstAttribute="trailing" secondItem="Hh0-BG-zbO" secondAttribute="trailing" constant="8" id="UIg-Ek-2eM"/>
                                         <constraint firstItem="RKt-UX-vTq" firstAttribute="leading" secondItem="RAq-3v-qEr" secondAttribute="leading" constant="8" id="WAL-Ru-sHq"/>
+                                        <constraint firstItem="MY7-it-4U5" firstAttribute="leading" secondItem="RAq-3v-qEr" secondAttribute="leading" id="XbB-KB-i8H"/>
                                         <constraint firstAttribute="trailing" secondItem="9P2-yc-Jyf" secondAttribute="trailing" id="aam-HK-yNJ"/>
                                         <constraint firstItem="RKt-UX-vTq" firstAttribute="top" secondItem="Hh0-BG-zbO" secondAttribute="bottom" constant="1" id="agv-B3-mFy"/>
                                         <constraint firstItem="5JZ-W2-qUo" firstAttribute="top" secondItem="HFp-1D-W8j" secondAttribute="bottom" constant="11" id="d9T-Ck-uiY"/>
                                         <constraint firstAttribute="trailing" secondItem="a3P-UN-q5F" secondAttribute="trailing" constant="8" id="dEt-s7-E7S"/>
                                         <constraint firstItem="HFp-1D-W8j" firstAttribute="top" secondItem="RAq-3v-qEr" secondAttribute="top" constant="11" id="fAS-vp-4OD"/>
+                                        <constraint firstItem="MY7-it-4U5" firstAttribute="centerX" secondItem="RAq-3v-qEr" secondAttribute="centerX" id="hcC-IB-oXz"/>
                                         <constraint firstAttribute="bottom" secondItem="acR-SG-Xha" secondAttribute="bottom" constant="8" id="hwL-51-ovf"/>
                                         <constraint firstItem="acR-SG-Xha" firstAttribute="leading" secondItem="RAq-3v-qEr" secondAttribute="leading" constant="8" id="hww-UV-att"/>
+                                        <constraint firstAttribute="trailing" secondItem="MY7-it-4U5" secondAttribute="trailing" id="iiX-m4-nIt"/>
                                         <constraint firstItem="9P2-yc-Jyf" firstAttribute="top" secondItem="5JZ-W2-qUo" secondAttribute="bottom" constant="22" id="kiB-ri-Obz"/>
                                         <constraint firstItem="a3P-UN-q5F" firstAttribute="leading" secondItem="RAq-3v-qEr" secondAttribute="leading" constant="8" id="pJz-jl-LCb"/>
                                         <constraint firstItem="sAs-Oj-WGZ" firstAttribute="width" secondItem="RAq-3v-qEr" secondAttribute="width" multiplier="0.2" id="sfD-ys-Qsd"/>

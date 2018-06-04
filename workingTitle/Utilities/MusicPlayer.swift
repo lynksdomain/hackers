@@ -57,6 +57,26 @@ class MusicHelper {
         
     }
     
+    func playError() {
+        guard let path = Bundle.main.url(forResource: "errorSound", withExtension: ".mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setActive(true)
+            soundEffectPlayer = try AVAudioPlayer(contentsOf: path, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = soundEffectPlayer else { return }
+            
+            player.volume = 1
+            player.prepareToPlay()
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     func playMainMenuTheme() {
         guard let path = Bundle.main.url(forResource: "mainMenuTheme", withExtension: ".mp3") else { return }
         

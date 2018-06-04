@@ -10,6 +10,7 @@ import Foundation
 
 protocol HangmanBrainDelegate: class {
     func newDisplay(stringDisplay: String)
+    func failed()
 }
 
 class HangmanBrain {
@@ -48,6 +49,8 @@ class HangmanBrain {
             }
             newDisplay.removeLast()
             self.delegate?.newDisplay(stringDisplay: newDisplay)
+        } else {
+            self.delegate?.failed()
         }
     }
     

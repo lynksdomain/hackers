@@ -10,6 +10,7 @@ import UIKit
 
 protocol levelZeroHackViewDelegate: class{
     func lockFolderPressed()
+    func sourceFolderPressed(sourceCodeTag: Int)
 }
 
 class levelZeroHackView: UIView {
@@ -31,6 +32,7 @@ class levelZeroHackView: UIView {
     }
     
     @IBAction func sourceFolderPressed(_ sender: UIButton) {
+        self.delegate?.sourceFolderPressed(sourceCodeTag: sender.tag)
     }
     
     

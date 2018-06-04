@@ -19,8 +19,10 @@ class Level {
     var subFolders: [String : [String]]
     var scannedResponse: [String : String]
     var unscrambleWinWords: [String]
+    var sourceCode: [String]
+    var clickableVariables: [String]
     
-    init(cutscenes: [String], state: gStates, hasInstructional: Bool, instructions: [String]?, instructionButtons: [String]?, rootFolders: [String], subFolders: [String : [String]], scannedResponse: [String : String], unscrambleWinWords: [String], levelName: levels) {
+    init(cutscenes: [String], state: gStates, hasInstructional: Bool, instructions: [String]?, instructionButtons: [String]?, rootFolders: [String], subFolders: [String : [String]], scannedResponse: [String : String], unscrambleWinWords: [String], levelName: levels, sourceCode: [String], clickableVariables: [String]) {
         self.cutscenes = cutscenes
         self.state = state
         self.hasInstructional = hasInstructional
@@ -31,6 +33,8 @@ class Level {
         self.scannedResponse = scannedResponse
         self.unscrambleWinWords = unscrambleWinWords
         self.levelName = levelName
+        self.sourceCode = sourceCode
+        self.clickableVariables = clickableVariables
     }
 }
 

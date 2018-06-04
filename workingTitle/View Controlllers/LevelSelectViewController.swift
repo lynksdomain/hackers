@@ -37,7 +37,7 @@ class LevelSelectViewController: UIViewController {
     }
     
     @IBAction func level0pressed(_ sender: UIButton) {
-        print("testing")
+        print("level0Pressed")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

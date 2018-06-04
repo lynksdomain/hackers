@@ -12,8 +12,9 @@ enum gameState {
     case unscramble, hacking, cutscene, instruction, hackingInstruction
 }
 
-enum levels {
-    case zero, one
+enum levels: String {
+    case zero = "zero"
+    case one
 }
 
 
@@ -51,6 +52,8 @@ protocol LevelBrainDelegate: class {
     func loadWordBank(wordBank:String)
     func turnOffWordBank()
     func loadHackingGame()
+    func loadSourceCode(sourceCode: String, clickableVariables: [String])
+    func enableSourceCodeButton()
 }
 
 
@@ -83,7 +86,12 @@ class LevelBrain {
     var unscrambleTap = UITapGestureRecognizer()
     private var fileOrder = [[String]]()
     private var hackViewToLoad: UIView?
-    
+    private var hangmanLoaded = false
+    private var levelZeroSourceCode = """
+developerMode = false
+hangman_border_color = .magenta
+hangman_difficulty = .hard
+"""
     
 
     //Levels
@@ -99,7 +107,7 @@ class LevelBrain {
                                         instructions:  ["Find and tap the word in the scrambled puzzle below",
                                                         "Great now press the arrow to gain access",
                                                         "Now you have access to the root files and the main lock. Tap on the lock to see the challenge",
-                                                        "dsdsds",
+                                                        "Haha, pretty impossible right? Click on the source code file and in the next window click on the developerMode variable and set to true",
                                                         "Remmeber yet? try main.back() to go back",
                                                         "dope, we are getting somewhere. Now find me the file dontOpenMe.text",
                                                         "ah, now lets do main.scan, click the file, and run", "presto, you did it!"],
@@ -117,7 +125,7 @@ class LevelBrain {
                                                           "ds003.png":"spicy",
                                                           "default":"nothing of value here..."],
                                         unscrambleWinWords: ["there","is", "no","spoon"],
-                                        levelName: .zero)
+                                        levelName: .zero, sourceCode: [self.levelZeroSourceCode], clickableVariables: ["developerMode"])
     
    lazy var levelOne = Level.init(cutscenes: ["welcome to level one"],
                                    state: .cutscene,
@@ -128,7 +136,7 @@ class LevelBrain {
                                    subFolders: [:],
                                    scannedResponse: [:],
                                    unscrambleWinWords: [],
-                                   levelName: .one)
+                                   levelName: .one, sourceCode: ["developerMode"], clickableVariables: [])
     
     
     
@@ -263,6 +271,8 @@ class LevelBrain {
                 self.delegate?.loadCutscene(cutsceneString: instruction!)
             }
             self.unscrambleV.commandButton.isHidden = false
+            self.currentUnscrambleWinWordIndex += 1
+            self.unscrambleV.unscrambleTextView.text = ""
             return
         } else if currentUnscrambleWinWordIndex < (currentLevel?.unscrambleWinWords.count)! {
             let winningWord = currentLevel?.unscrambleWinWords[currentUnscrambleWinWordIndex]
@@ -293,6 +303,16 @@ class LevelBrain {
         return stringBlock
     }
     
+    func hangmanDismissed() {
+        if !hangmanLoaded {
+            hangmanLoaded = true
+            self.delegate?.enableSourceCodeButton()
+            loadInstructions()
+        }
+    }
+    
+    
+    
     func createWordBank(words: [String]) -> String {
         var wordBank = ""
         for word in words {
@@ -305,8 +325,6 @@ class LevelBrain {
 
 
 extension LevelBrain: unscrambleViewDelegate {
-    
-    
     func commandButtonPressed() {
         if currentGameState == .instruction {
             let instruction = currentLevel?.instructions![currentInstructionIndex]
@@ -322,4 +340,11 @@ extension LevelBrain: levelZeroHackViewDelegate {
     func lockFolderPressed() {
         self.delegate?.loadHackingGame()
     }
+    func sourceFolderPressed(sourceCodeTag: Int) {
+        let sourceCode = self.currentLevel?.sourceCode[sourceCodeTag]
+        let clickableVariables = self.currentLevel?.clickableVariables
+        self.delegate?.loadSourceCode(sourceCode: sourceCode!, clickableVariables: clickableVariables! )
+    }
 }
+
+

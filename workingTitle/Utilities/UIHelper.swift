@@ -30,7 +30,7 @@ extension UIView {
         self.layer.borderWidth = 1
     }
     
-    
+
         func makeDashedBorder() {
         let mViewBorder = CAShapeLayer()
         mViewBorder.strokeColor = UIColor.magenta.cgColor
@@ -115,6 +115,65 @@ class CustomHackingUILabel: UILabel {
     @IBInspectable var labelcornerRadius: CGFloat = 0.0 {
         didSet {
             self.layer.cornerRadius = labelcornerRadius
+        }
+    }
+}
+
+
+@IBDesignable
+class CustomHackingUITextView: UITextView {
+    @IBInspectable var textviewborderGlow: Bool = true {
+        didSet {
+            if textviewborderGlow {
+                self.glow(glowIntensity: .high)
+            }
+        }
+    }
+    
+    @IBInspectable var textviewborderColor: UIColor = UIColor.white {
+        didSet {
+            self.layer.borderColor = textviewborderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var textviewborderWidth: CGFloat = 2.0 {
+        didSet {
+            self.layer.borderWidth = textviewborderWidth
+        }
+    }
+    
+    @IBInspectable var textviewcornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = textviewcornerRadius
+        }
+    }
+}
+
+@IBDesignable
+class CustomHackingUIButton: UIButton {
+    @IBInspectable var buttonborderGlow: Bool = true {
+        didSet {
+            if buttonborderGlow {
+                self.glow(glowIntensity: .high)
+            }
+        }
+    }
+    
+    @IBInspectable var buttonborderColor: UIColor = UIColor.white {
+        didSet {
+            self.layer.borderColor = buttonborderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var buttonborderWidth: CGFloat = 2.0 {
+        didSet {
+            self.layer.borderWidth = buttonborderWidth
+        }
+    }
+    
+    @IBInspectable var buttoncornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = buttoncornerRadius
         }
     }
 }

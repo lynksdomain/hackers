@@ -19,6 +19,10 @@
 		81A9621C208E5E220097101C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9621B208E5E220097101C /* MainMenuViewController.swift */; };
 		81A9621E208E5E300097101C /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9621D208E5E300097101C /* LevelSelectViewController.swift */; };
 		81AE6D5720C4F15F0091D43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81AE6D5620C4F15F0091D43F /* Assets.xcassets */; };
+		81AE6D5920C4FC610091D43F /* errorSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81AE6D5820C4FC610091D43F /* errorSound.mp3 */; };
+		81AE6D5D20C50E050091D43F /* SourceCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AE6D5C20C50E050091D43F /* SourceCodeViewController.swift */; };
+		81AE6D5F20C526780091D43F /* LevelZeroKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AE6D5E20C526780091D43F /* LevelZeroKeyboard.xib */; };
+		81AE6D6120C5267D0091D43F /* LevelZeroKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AE6D6020C5267D0091D43F /* LevelZeroKeyboard.swift */; };
 		81C7502820C4E6A200BB8638 /* mainMenuTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81C7502620C4E6A100BB8638 /* mainMenuTheme.mp3 */; };
 		81C7502920C4E6A200BB8638 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81C7502720C4E6A100BB8638 /* theme.mp3 */; };
 		81C7502B20C4E7CE00BB8638 /* typing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81C7502A20C4E7CE00BB8638 /* typing.mp3 */; };
@@ -62,6 +66,10 @@
 		81A9621B208E5E220097101C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		81A9621D208E5E300097101C /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		81AE6D5620C4F15F0091D43F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81AE6D5820C4FC610091D43F /* errorSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = errorSound.mp3; path = workingTitle/Assets.xcassets/errorSound.mp3; sourceTree = SOURCE_ROOT; };
+		81AE6D5C20C50E050091D43F /* SourceCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCodeViewController.swift; sourceTree = "<group>"; };
+		81AE6D5E20C526780091D43F /* LevelZeroKeyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelZeroKeyboard.xib; sourceTree = "<group>"; };
+		81AE6D6020C5267D0091D43F /* LevelZeroKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelZeroKeyboard.swift; sourceTree = "<group>"; };
 		81C7502620C4E6A100BB8638 /* mainMenuTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainMenuTheme.mp3; path = workingTitle/Assets.xcassets/mainMenuTheme.mp3; sourceTree = SOURCE_ROOT; };
 		81C7502720C4E6A100BB8638 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = theme.mp3; path = workingTitle/Assets.xcassets/theme.mp3; sourceTree = SOURCE_ROOT; };
 		81C7502A20C4E7CE00BB8638 /* typing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = typing.mp3; path = workingTitle/Assets.xcassets/typing.mp3; sourceTree = SOURCE_ROOT; };
@@ -183,6 +191,8 @@
 				81F789A52087E99500A37606 /* subTerminalTableViewCell.swift */,
 				81E1BECE20C266190070C79C /* hangManView.xib */,
 				81E1BED020C266260070C79C /* hangManView.swift */,
+				81AE6D5E20C526780091D43F /* LevelZeroKeyboard.xib */,
+				81AE6D6020C5267D0091D43F /* LevelZeroKeyboard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +214,7 @@
 			children = (
 				81AE6D5620C4F15F0091D43F /* Assets.xcassets */,
 				81C7502620C4E6A100BB8638 /* mainMenuTheme.mp3 */,
+				81AE6D5820C4FC610091D43F /* errorSound.mp3 */,
 				81C7502A20C4E7CE00BB8638 /* typing.mp3 */,
 				81C7502720C4E6A100BB8638 /* theme.mp3 */,
 				81E7CA9B20868A050008A02E /* Main.storyboard */,
@@ -221,6 +232,7 @@
 				81A9621B208E5E220097101C /* MainMenuViewController.swift */,
 				81A9621D208E5E300097101C /* LevelSelectViewController.swift */,
 				81E1BED220C266F80070C79C /* HackGameViewController.swift */,
+				81AE6D5C20C50E050091D43F /* SourceCodeViewController.swift */,
 			);
 			path = "View Controlllers";
 			sourceTree = "<group>";
@@ -323,6 +335,8 @@
 				81EFBB9F20BFB30D00C51EED /* mainTerminalHackView.xib in Resources */,
 				81AE6D5720C4F15F0091D43F /* Assets.xcassets in Resources */,
 				81C7502820C4E6A200BB8638 /* mainMenuTheme.mp3 in Resources */,
+				81AE6D5920C4FC610091D43F /* errorSound.mp3 in Resources */,
+				81AE6D5F20C526780091D43F /* LevelZeroKeyboard.xib in Resources */,
 				81E7CAA220868A070008A02E /* LaunchScreen.storyboard in Resources */,
 				816BA10120BE376400F412ED /* unscrambleView.xib in Resources */,
 				81E1BECF20C266190070C79C /* hangManView.xib in Resources */,
@@ -389,6 +403,7 @@
 				81A9621E208E5E300097101C /* LevelSelectViewController.swift in Sources */,
 				815437DA20A9ED07007EFEC7 /* UserDefaults.swift in Sources */,
 				81699B9920A511C0000C31C8 /* MusicPlayer.swift in Sources */,
+				81AE6D6120C5267D0091D43F /* LevelZeroKeyboard.swift in Sources */,
 				815437D820A63E81007EFEC7 /* GameResultViewController.swift in Sources */,
 				81EFBB9620BF845E00C51EED /* UIHelper.swift in Sources */,
 				81E7CA9220868A050008A02E /* AppDelegate.swift in Sources */,
@@ -399,6 +414,7 @@
 				81EFBB9C20BFAC4F00C51EED /* mainTerminalHackView.swift in Sources */,
 				81A7C98A208E958C009723D6 /* scanline.swift in Sources */,
 				81F789A62087E99500A37606 /* subTerminalTableViewCell.swift in Sources */,
+				81AE6D5D20C50E050091D43F /* SourceCodeViewController.swift in Sources */,
 				810E626020A131CC00CF43D1 /* LevelBrain.swift in Sources */,
 				816BA10320BE379400F412ED /* unscrambleView.swift in Sources */,
 				81E1BED120C266260070C79C /* hangManView.swift in Sources */,

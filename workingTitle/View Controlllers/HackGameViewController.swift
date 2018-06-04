@@ -13,6 +13,7 @@ class HackGameViewController: UIViewController {
     var levelName: levels?
     var hangmanBrain: HangmanBrain?
     var hangmanGame: hangManView?
+    var mainViewController: HackViewController?
 
     
   
@@ -46,12 +47,14 @@ class HackGameViewController: UIViewController {
     
     @objc func tappedOutside(){
         self.dismiss(animated: true) {
+            self.mainViewController?.levelBrain?.hangmanDismissed()
         }
     }
     
     
     
     func loadGame() {
+        self.mainViewController = self.presentingViewController as? HackViewController
         switch self.levelName! {
         case .zero:
             self.hangmanGame = hangManView()
@@ -80,6 +83,8 @@ class HackGameViewController: UIViewController {
         
     }
     
+    
+    
 }
 
 extension HackGameViewController: UITextFieldDelegate {
@@ -106,6 +111,21 @@ extension HackGameViewController: UITextFieldDelegate {
 
 
 extension HackGameViewController: HangmanBrainDelegate {
+    func failed() {
+        self.hangmanGame?.playerTextField.isEnabled = false
+        self.hangmanGame?.imageView.image = #imageLiteral(resourceName: "hangmanLose")
+        MusicHelper.manager.playError()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            self.hangmanGame?.guessLeftLabel.text = "Guesses Left: 0"
+        self.hangmanGame?.failedLabel.isHidden = false
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
+            self.dismiss(animated: true) {
+                self.mainViewController?.levelBrain?.hangmanDismissed()
+            }
+        }
+    }
+    
     func newDisplay(stringDisplay: String) {
         self.hangmanGame?.wordToSolveLabel.text = stringDisplay
     }

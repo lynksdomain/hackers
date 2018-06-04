@@ -190,6 +190,23 @@ extension HackViewController {
 
 
 extension HackViewController: LevelBrainDelegate {
+    
+    func enableSourceCodeButton() {
+        let vc = self.controlInternalTerminal.subviews[0] as? levelZeroHackView
+        vc?.sourceFolder.isEnabled = true
+        vc?.sourceLabel.alpha = 1
+    }
+    
+    func loadSourceCode(sourceCode: String, clickableVariables: [String]) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SourceCodeViewController") as? SourceCodeViewController
+        vc?.sourceCode = sourceCode
+        vc?.clickableVariables = clickableVariables
+        vc?.modalTransitionStyle = .crossDissolve
+        vc?.modalPresentationStyle = .overCurrentContext
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
     func loadHackingGame() {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "HackGameViewController") as? HackGameViewController
