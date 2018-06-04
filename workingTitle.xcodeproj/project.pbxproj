@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		28E177B4912DF0C509475D1E /* Pods_workingTitle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A68D7BD1C3DFB196761B62 /* Pods_workingTitle.framework */; };
-		810E625B20A0F8DE00CF43D1 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810E625A20A0F8DE00CF43D1 /* Tutorial.swift */; };
 		810E625E20A0F95000CF43D1 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810E625D20A0F95000CF43D1 /* Level.swift */; };
 		810E626020A131CC00CF43D1 /* LevelBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810E625F20A131CC00CF43D1 /* LevelBrain.swift */; };
 		815437D820A63E81007EFEC7 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815437D720A63E81007EFEC7 /* GameResultViewController.swift */; };
@@ -19,19 +18,25 @@
 		81A7C98A208E958C009723D6 /* scanline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A7C989208E958C009723D6 /* scanline.swift */; };
 		81A9621C208E5E220097101C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9621B208E5E220097101C /* MainMenuViewController.swift */; };
 		81A9621E208E5E300097101C /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A9621D208E5E300097101C /* LevelSelectViewController.swift */; };
-		81DBB63620C0622300DE56F3 /* mainMenuTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81DBB63520C0622300DE56F3 /* mainMenuTheme.mp3 */; };
+		81AE6D5720C4F15F0091D43F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81AE6D5620C4F15F0091D43F /* Assets.xcassets */; };
+		81C7502820C4E6A200BB8638 /* mainMenuTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81C7502620C4E6A100BB8638 /* mainMenuTheme.mp3 */; };
+		81C7502920C4E6A200BB8638 /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81C7502720C4E6A100BB8638 /* theme.mp3 */; };
+		81C7502B20C4E7CE00BB8638 /* typing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81C7502A20C4E7CE00BB8638 /* typing.mp3 */; };
+		81E1BEC920C24DDE0070C79C /* levelZeroHackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81E1BEC820C24DDE0070C79C /* levelZeroHackView.xib */; };
+		81E1BECB20C24DE70070C79C /* levelZeroHackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1BECA20C24DE70070C79C /* levelZeroHackView.swift */; };
+		81E1BECF20C266190070C79C /* hangManView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81E1BECE20C266190070C79C /* hangManView.xib */; };
+		81E1BED120C266260070C79C /* hangManView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1BED020C266260070C79C /* hangManView.swift */; };
+		81E1BED320C266F80070C79C /* HackGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1BED220C266F80070C79C /* HackGameViewController.swift */; };
 		81E7CA9220868A050008A02E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E7CA9120868A050008A02E /* AppDelegate.swift */; };
 		81E7CA9D20868A050008A02E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E7CA9B20868A050008A02E /* Main.storyboard */; };
-		81E7CA9F20868A070008A02E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E7CA9E20868A070008A02E /* Assets.xcassets */; };
 		81E7CAA220868A070008A02E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E7CAA020868A070008A02E /* LaunchScreen.storyboard */; };
 		81E7CAAD20868A070008A02E /* workingTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E7CAAC20868A070008A02E /* workingTitleTests.swift */; };
 		81E7CAB820868EEA0008A02E /* HackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E7CAB720868EEA0008A02E /* HackViewController.swift */; };
 		81EFBB9620BF845E00C51EED /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EFBB9520BF845E00C51EED /* UIHelper.swift */; };
-		81EFBB9820BF908A00C51EED /* theme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81EFBB9720BF908A00C51EED /* theme.mp3 */; };
 		81EFBB9C20BFAC4F00C51EED /* mainTerminalHackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EFBB9B20BFAC4F00C51EED /* mainTerminalHackView.swift */; };
 		81EFBB9F20BFB30D00C51EED /* mainTerminalHackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81EFBB9E20BFB30D00C51EED /* mainTerminalHackView.xib */; };
+		81F6D3D420C3BC7A005DE7E8 /* HangmanBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6D3D320C3BC7A005DE7E8 /* HangmanBrain.swift */; };
 		81F789A62087E99500A37606 /* subTerminalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F789A52087E99500A37606 /* subTerminalTableViewCell.swift */; };
-		81F789A820882BAE00A37606 /* levelTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F789A720882BAE00A37606 /* levelTwo.swift */; };
 		81F789AA20882F3100A37606 /* timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F789A920882F3100A37606 /* timer.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		810E625A20A0F8DE00CF43D1 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		810E625D20A0F95000CF43D1 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		810E625F20A131CC00CF43D1 /* LevelBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelBrain.swift; sourceTree = "<group>"; };
 		815437D720A63E81007EFEC7 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
@@ -57,11 +61,18 @@
 		81A7C989208E958C009723D6 /* scanline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scanline.swift; sourceTree = "<group>"; };
 		81A9621B208E5E220097101C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		81A9621D208E5E300097101C /* LevelSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
-		81DBB63520C0622300DE56F3 /* mainMenuTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainMenuTheme.mp3; path = Assets.xcassets/mainMenuTheme.mp3; sourceTree = "<group>"; };
+		81AE6D5620C4F15F0091D43F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81C7502620C4E6A100BB8638 /* mainMenuTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mainMenuTheme.mp3; path = workingTitle/Assets.xcassets/mainMenuTheme.mp3; sourceTree = SOURCE_ROOT; };
+		81C7502720C4E6A100BB8638 /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = theme.mp3; path = workingTitle/Assets.xcassets/theme.mp3; sourceTree = SOURCE_ROOT; };
+		81C7502A20C4E7CE00BB8638 /* typing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = typing.mp3; path = workingTitle/Assets.xcassets/typing.mp3; sourceTree = SOURCE_ROOT; };
+		81E1BEC820C24DDE0070C79C /* levelZeroHackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = levelZeroHackView.xib; sourceTree = "<group>"; };
+		81E1BECA20C24DE70070C79C /* levelZeroHackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelZeroHackView.swift; sourceTree = "<group>"; };
+		81E1BECE20C266190070C79C /* hangManView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = hangManView.xib; sourceTree = "<group>"; };
+		81E1BED020C266260070C79C /* hangManView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hangManView.swift; sourceTree = "<group>"; };
+		81E1BED220C266F80070C79C /* HackGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackGameViewController.swift; sourceTree = "<group>"; };
 		81E7CA8E20868A050008A02E /* workingTitle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workingTitle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E7CA9120868A050008A02E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E7CA9C20868A050008A02E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		81E7CA9E20868A070008A02E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81E7CAA120868A070008A02E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E7CAA320868A070008A02E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E7CAA820868A070008A02E /* workingTitleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workingTitleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,11 +80,10 @@
 		81E7CAAE20868A070008A02E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E7CAB720868EEA0008A02E /* HackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackViewController.swift; sourceTree = "<group>"; };
 		81EFBB9520BF845E00C51EED /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
-		81EFBB9720BF908A00C51EED /* theme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = theme.mp3; path = Assets.xcassets/theme.mp3; sourceTree = "<group>"; };
 		81EFBB9B20BFAC4F00C51EED /* mainTerminalHackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainTerminalHackView.swift; sourceTree = "<group>"; };
 		81EFBB9E20BFB30D00C51EED /* mainTerminalHackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = mainTerminalHackView.xib; sourceTree = "<group>"; };
+		81F6D3D320C3BC7A005DE7E8 /* HangmanBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanBrain.swift; sourceTree = "<group>"; };
 		81F789A52087E99500A37606 /* subTerminalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subTerminalTableViewCell.swift; sourceTree = "<group>"; };
-		81F789A720882BAE00A37606 /* levelTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelTwo.swift; sourceTree = "<group>"; };
 		81F789A920882F3100A37606 /* timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timer.swift; sourceTree = "<group>"; };
 		9BBFB340BDAE2AD8AB372E62 /* Pods-workingTitle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workingTitle.release.xcconfig"; path = "Pods/Target Support Files/Pods-workingTitle/Pods-workingTitle.release.xcconfig"; sourceTree = "<group>"; };
 		C0A68D7BD1C3DFB196761B62 /* Pods_workingTitle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workingTitle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,10 +122,11 @@
 		810E625C20A0F8FA00CF43D1 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				81F789A720882BAE00A37606 /* levelTwo.swift */,
-				810E625A20A0F8DE00CF43D1 /* Tutorial.swift */,
+				81E1BEC820C24DDE0070C79C /* levelZeroHackView.xib */,
+				81E1BECA20C24DE70070C79C /* levelZeroHackView.swift */,
 				810E625D20A0F95000CF43D1 /* Level.swift */,
 				810E625F20A131CC00CF43D1 /* LevelBrain.swift */,
+				81F6D3D320C3BC7A005DE7E8 /* HangmanBrain.swift */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -170,6 +181,8 @@
 				81EFBB9E20BFB30D00C51EED /* mainTerminalHackView.xib */,
 				81EFBB9B20BFAC4F00C51EED /* mainTerminalHackView.swift */,
 				81F789A52087E99500A37606 /* subTerminalTableViewCell.swift */,
+				81E1BECE20C266190070C79C /* hangManView.xib */,
+				81E1BED020C266260070C79C /* hangManView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,11 +202,12 @@
 		81EFBB9120BF6A1E00C51EED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				81DBB63520C0622300DE56F3 /* mainMenuTheme.mp3 */,
-				81EFBB9720BF908A00C51EED /* theme.mp3 */,
+				81AE6D5620C4F15F0091D43F /* Assets.xcassets */,
+				81C7502620C4E6A100BB8638 /* mainMenuTheme.mp3 */,
+				81C7502A20C4E7CE00BB8638 /* typing.mp3 */,
+				81C7502720C4E6A100BB8638 /* theme.mp3 */,
 				81E7CA9B20868A050008A02E /* Main.storyboard */,
 				81E7CA9120868A050008A02E /* AppDelegate.swift */,
-				81E7CA9E20868A070008A02E /* Assets.xcassets */,
 				81E7CAA020868A070008A02E /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -206,6 +220,7 @@
 				81E7CAB720868EEA0008A02E /* HackViewController.swift */,
 				81A9621B208E5E220097101C /* MainMenuViewController.swift */,
 				81A9621D208E5E300097101C /* LevelSelectViewController.swift */,
+				81E1BED220C266F80070C79C /* HackGameViewController.swift */,
 			);
 			path = "View Controlllers";
 			sourceTree = "<group>";
@@ -302,13 +317,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E1BEC920C24DDE0070C79C /* levelZeroHackView.xib in Resources */,
+				81C7502B20C4E7CE00BB8638 /* typing.mp3 in Resources */,
 				81E7CA9D20868A050008A02E /* Main.storyboard in Resources */,
-				81E7CA9F20868A070008A02E /* Assets.xcassets in Resources */,
 				81EFBB9F20BFB30D00C51EED /* mainTerminalHackView.xib in Resources */,
-				81DBB63620C0622300DE56F3 /* mainMenuTheme.mp3 in Resources */,
+				81AE6D5720C4F15F0091D43F /* Assets.xcassets in Resources */,
+				81C7502820C4E6A200BB8638 /* mainMenuTheme.mp3 in Resources */,
 				81E7CAA220868A070008A02E /* LaunchScreen.storyboard in Resources */,
 				816BA10120BE376400F412ED /* unscrambleView.xib in Resources */,
-				81EFBB9820BF908A00C51EED /* theme.mp3 in Resources */,
+				81E1BECF20C266190070C79C /* hangManView.xib in Resources */,
+				81C7502920C4E6A200BB8638 /* theme.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,16 +383,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E1BECB20C24DE70070C79C /* levelZeroHackView.swift in Sources */,
 				81A9621C208E5E220097101C /* MainMenuViewController.swift in Sources */,
+				81F6D3D420C3BC7A005DE7E8 /* HangmanBrain.swift in Sources */,
 				81A9621E208E5E300097101C /* LevelSelectViewController.swift in Sources */,
-				81F789A820882BAE00A37606 /* levelTwo.swift in Sources */,
 				815437DA20A9ED07007EFEC7 /* UserDefaults.swift in Sources */,
 				81699B9920A511C0000C31C8 /* MusicPlayer.swift in Sources */,
 				815437D820A63E81007EFEC7 /* GameResultViewController.swift in Sources */,
-				810E625B20A0F8DE00CF43D1 /* Tutorial.swift in Sources */,
 				81EFBB9620BF845E00C51EED /* UIHelper.swift in Sources */,
 				81E7CA9220868A050008A02E /* AppDelegate.swift in Sources */,
 				810E625E20A0F95000CF43D1 /* Level.swift in Sources */,
+				81E1BED320C266F80070C79C /* HackGameViewController.swift in Sources */,
 				81E7CAB820868EEA0008A02E /* HackViewController.swift in Sources */,
 				81F789AA20882F3100A37606 /* timer.swift in Sources */,
 				81EFBB9C20BFAC4F00C51EED /* mainTerminalHackView.swift in Sources */,
@@ -382,6 +401,7 @@
 				81F789A62087E99500A37606 /* subTerminalTableViewCell.swift in Sources */,
 				810E626020A131CC00CF43D1 /* LevelBrain.swift in Sources */,
 				816BA10320BE379400F412ED /* unscrambleView.swift in Sources */,
+				81E1BED120C266260070C79C /* hangManView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

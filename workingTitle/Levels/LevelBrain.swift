@@ -49,6 +49,8 @@ protocol LevelBrainDelegate: class {
     func loadCutscene(cutsceneString: String)
     func loadMainScreen(mainScreen:UIView)
     func loadWordBank(wordBank:String)
+    func turnOffWordBank()
+    func loadHackingGame()
 }
 
 
@@ -80,6 +82,7 @@ class LevelBrain {
     private var primaryButtonConfig = true
     var unscrambleTap = UITapGestureRecognizer()
     private var fileOrder = [[String]]()
+    private var hackViewToLoad: UIView?
     
     
 
@@ -95,8 +98,8 @@ class LevelBrain {
                                         hasInstructional: true,
                                         instructions:  ["Find and tap the word in the scrambled puzzle below",
                                                         "Great now press the arrow to gain access",
-                                                        "Now you have access to the root files and the main lock",
-                                                        "now run it",
+                                                        "Now you have access to the root files and the main lock. Tap on the lock to see the challenge",
+                                                        "dsdsds",
                                                         "Remmeber yet? try main.back() to go back",
                                                         "dope, we are getting somewhere. Now find me the file dontOpenMe.text",
                                                         "ah, now lets do main.scan, click the file, and run", "presto, you did it!"],
@@ -116,7 +119,7 @@ class LevelBrain {
                                         unscrambleWinWords: ["there","is", "no","spoon"],
                                         levelName: .zero)
     
-    lazy var levelOne = Level.init(cutscenes: ["welcome to level one"],
+   lazy var levelOne = Level.init(cutscenes: ["welcome to level one"],
                                    state: .cutscene,
                                    hasInstructional: false,
                                    instructions: nil,
@@ -149,6 +152,10 @@ class LevelBrain {
     public func loadMainScreen() {
         switch currentLevel?.levelName {
         case .zero?:
+            self.hackViewToLoad = levelZeroHackView()
+            let vcDelegate = self.hackViewToLoad as! levelZeroHackView
+            vcDelegate.delegate = self
+            self.hackViewToLoad?.tag = 1
             let vc = mainTerminalHackView()
             vc.usernameView.layer.borderColor = UIColor.magenta.cgColor
             vc.usernameView.layer.borderWidth = 1
@@ -168,6 +175,9 @@ class LevelBrain {
     public func mainScreenNowOn() { self.mainScreenOn = true }
     public func checkIfunscrambleGameOn() -> Bool { return self.unscrambleGameOn }
     public func unscrambleGameNowOn() { self.unscrambleGameOn = true }
+    public func levelName() -> levels {
+        return (currentLevel?.levelName)!
+    }
 
     private func loadInstructions() {
         if currentInstructionIndex < (currentLevel?.instructions!.count)! {
@@ -193,10 +203,9 @@ class LevelBrain {
         case .instruction:
             setUnscrambleView()
             self.delegate?.loadGame(controlView: self.unscrambleV)
-            let wordBank = self.createWordBank(words: (self.currentLevel?.unscrambleWinWords)!)
-            self.delegate?.loadWordBank(wordBank: wordBank)
+            self.delegate?.loadWordBank(wordBank: (self.currentLevel?.unscrambleWinWords[currentUnscrambleWinWordIndex])!)
         case .hackingInstruction:
-            print("now the hacking")
+            self.delegate?.loadGame(controlView: hackViewToLoad!)
         default:
             print("loadunscramblegame default")
         }
@@ -215,10 +224,11 @@ class LevelBrain {
         self.winRange = attributedBlock.mutableString.range(of: winningWord!)
         self.unscrambleV.unscrambleTextView.attributedText = attributedBlock
         self.unscrambleV.unscrambleTextView.textColor = UIColor.magenta
-        self.unscrambleV.unscrambleTextView.font = UIFont(name: "Courier New", size: 20)
+        self.unscrambleV.unscrambleTextView.font = UIFont(name: "CourierNewPS-BoldMT", size: 18)
         self.unscrambleTap = UITapGestureRecognizer(target: self, action: #selector(unscrambleTextViewTapped(_:)))
         self.unscrambleV.unscrambleTextView.addGestureRecognizer(unscrambleTap)
     }
+    
     
     @objc func unscrambleTextViewTapped(_ sender: UITapGestureRecognizer) {
         let myTextView = sender.view as! UITextView
@@ -246,6 +256,7 @@ class LevelBrain {
         if currentUnscrambleWinWordIndex == (currentLevel?.unscrambleWinWords.count)! - 1 {
             let winningWord = currentLevel?.unscrambleWinWords[currentUnscrambleWinWordIndex]
             self.unscrambleV.playerInputLabel.text = self.unscrambleV.playerInputLabel.text! + "\(winningWord!)"
+            self.delegate?.turnOffWordBank()
             if currentGameState == .instruction {
                 let instruction = currentLevel?.instructions![currentInstructionIndex]
                 currentInstructionIndex += 1
@@ -262,6 +273,7 @@ class LevelBrain {
             print("winning")
         }
     }
+    
     
     
     private func UnscrambleString(winningWord: String, blockLength: Int) -> String {
@@ -293,6 +305,8 @@ class LevelBrain {
 
 
 extension LevelBrain: unscrambleViewDelegate {
+    
+    
     func commandButtonPressed() {
         if currentGameState == .instruction {
             let instruction = currentLevel?.instructions![currentInstructionIndex]
@@ -301,5 +315,11 @@ extension LevelBrain: unscrambleViewDelegate {
             self.delegate?.loadCutscene(cutsceneString: instruction!)
             self.delegate?.removeUnscrambleScreen()
         }
+    }
+}
+
+extension LevelBrain: levelZeroHackViewDelegate {
+    func lockFolderPressed() {
+        self.delegate?.loadHackingGame()
     }
 }

@@ -212,7 +212,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9B-rv-a9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="145"/>
+            <point key="canvasLocation" x="1428" y="232"/>
+        </scene>
+        <!--Hack Game View Controller-->
+        <scene sceneID="Q0Y-7g-h9a">
+            <objects>
+                <viewController storyboardIdentifier="HackGameViewController" id="gga-iQ-mcD" customClass="HackGameViewController" customModule="workingTitle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="64M-Da-kWe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEL-Gq-ucB" customClass="CustomHackingUIView" customModule="workingTitle" customModuleProvider="target">
+                                <rect key="frame" x="22" y="42" width="370" height="672"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10u-Lx-MwY" customClass="CustomHackingUIView" customModule="workingTitle" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="354" height="656"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="10u-Lx-MwY" firstAttribute="top" secondItem="rEL-Gq-ucB" secondAttribute="top" constant="8" id="aN8-fP-CB4"/>
+                                    <constraint firstAttribute="trailing" secondItem="10u-Lx-MwY" secondAttribute="trailing" constant="8" id="qhz-Iq-BQd"/>
+                                    <constraint firstAttribute="bottom" secondItem="10u-Lx-MwY" secondAttribute="bottom" constant="8" id="sPM-SS-bvm"/>
+                                    <constraint firstItem="10u-Lx-MwY" firstAttribute="leading" secondItem="rEL-Gq-ucB" secondAttribute="leading" constant="8" id="vaE-OJ-sFp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rEL-Gq-ucB" firstAttribute="leading" secondItem="dEl-pL-vu9" secondAttribute="leading" constant="22" id="Axv-F1-3iC"/>
+                            <constraint firstItem="dEl-pL-vu9" firstAttribute="bottom" secondItem="rEL-Gq-ucB" secondAttribute="bottom" constant="22" id="d3g-uK-cdF"/>
+                            <constraint firstItem="dEl-pL-vu9" firstAttribute="trailing" secondItem="rEL-Gq-ucB" secondAttribute="trailing" constant="22" id="g8P-Jo-CgN"/>
+                            <constraint firstItem="rEL-Gq-ucB" firstAttribute="top" secondItem="dEl-pL-vu9" secondAttribute="top" constant="22" id="jbi-eA-M9S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dEl-pL-vu9"/>
+                    </view>
+                    <connections>
+                        <outlet property="externalGameView" destination="rEL-Gq-ucB" id="6fb-hM-IV6"/>
+                        <outlet property="gameView" destination="10u-Lx-MwY" id="yha-Mb-QCp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6e-fh-ebQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2552.1739130434785" y="92.934782608695656"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="hgx-ww-ZVG">
@@ -257,13 +309,13 @@
                                                 <color key="textColor" red="1" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKK-0d-eLB">
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKK-0d-eLB">
                                                 <rect key="frame" x="12" y="216" width="91" height="20"/>
                                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyI-KW-LGi">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyI-KW-LGi">
                                                 <rect key="frame" x="22" y="146" width="70" height="70"/>
                                                 <state key="normal" image="settings"/>
                                             </button>
@@ -470,9 +522,9 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-cf-eJC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-cf-eJC">
                                                 <rect key="frame" x="8" y="8" width="382" height="50"/>
-                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="44"/>
+                                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="44"/>
                                                 <color key="textColor" red="1" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

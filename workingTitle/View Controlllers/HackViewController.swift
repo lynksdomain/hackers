@@ -38,7 +38,7 @@ class HackViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MusicHelper.manager.playMusic()
+        MusicHelper.manager.stopMusic()
         self.levelBrain = LevelBrain.init(levelNumber: levelNumber)
         self.levelBrain?.delegate = self
         self.levelBrain?.unscrambleTap.delegate = self
@@ -46,7 +46,6 @@ class HackViewController: UIViewController, UIGestureRecognizerDelegate {
         self.subTerminalView.allowsSelection = false
         aiExternalTerminal.clipsToBounds = true
         aiExternalTerminal.layer.cornerRadius = 10
-        aiExternalTerminal.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
     override func viewDidLayoutSubviews() {
@@ -124,7 +123,9 @@ class HackViewController: UIViewController, UIGestureRecognizerDelegate {
         let editedString = speech.replacingOccurrences(of: " ", with: "/")
         cell?.subTerminalText.text = "@://\(editedString)/"
         cell?.subTerminalText.typingTimeInterval = TimeInterval.init(0.04)
+        MusicHelper.manager.playTyping()
         cell?.subTerminalText.startTypewritingAnimation(completion: {
+            MusicHelper.manager.stopTypingSound()
             self.botEndedSpeech(cell: cell!)
         })
         subTerminalView.endUpdates()
@@ -141,6 +142,7 @@ class HackViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }else if !(self.levelBrain?.checkIfunscrambleGameOn())!{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    MusicHelper.manager.playMusic()
                     self.levelBrain?.loadUnscrambleGame()
                     self.levelBrain?.unscrambleGameNowOn()
                 }
@@ -188,6 +190,22 @@ extension HackViewController {
 
 
 extension HackViewController: LevelBrainDelegate {
+    func loadHackingGame() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HackGameViewController") as? HackGameViewController
+        vc?.levelName = self.levelBrain?.levelName()
+        vc?.modalTransitionStyle = .crossDissolve
+        vc?.modalPresentationStyle = .overCurrentContext
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    
+    func turnOffWordBank() {
+        self.wordBankLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.wordBankLabel.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        self.wordBankLabel.isHidden = true
+    }
+    
     func loadWordBank(wordBank: String) {
         self.wordBankLabel.addBorder()
         self.wordBankLabel.glow(glowIntensity: .high)
@@ -221,6 +239,14 @@ extension HackViewController: LevelBrainDelegate {
             let vc = controlView as? unscrambleView
             self.uihelper.addGlow(object: (vc?.playerInputLabel!)!)
             self.uihelper.addGlow(object: (vc?.unscrambleTextView)!)
+        }
+        
+        if controlView.tag == 1 {
+            let vc = controlView as? levelZeroHackView
+            vc?.rootLabel.glow(glowIntensity: .high)
+            vc?.rootButton.glow(glowIntensity: .high)
+            vc?.sourceLabel.glow(glowIntensity: .high)
+            vc?.sourceFolder.glow(glowIntensity: .high)
         }
     }
     

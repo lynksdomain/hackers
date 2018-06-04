@@ -58,4 +58,63 @@ extension UIView {
                            animations:{ self.alpha=1.0}, completion: nil)
         }
     
+    
+}
+
+@IBDesignable class CustomHackingUIView: UIView {
+    @IBInspectable var borderGlow: Bool = true {
+        didSet {
+            if borderGlow {
+            self.glow(glowIntensity: .high)
+            }
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor = UIColor.white {
+        didSet {
+            self.layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat = 2.0 {
+        didSet {
+            self.layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+        }
+    }
+}
+
+
+@IBDesignable
+class CustomHackingUILabel: UILabel {
+    @IBInspectable var labelborderGlow: Bool = true {
+        didSet {
+            if labelborderGlow {
+                self.glow(glowIntensity: .high)
+            }
+        }
+    }
+    
+    @IBInspectable var labelborderColor: UIColor = UIColor.white {
+        didSet {
+            self.layer.borderColor = labelborderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var labelborderWidth: CGFloat = 2.0 {
+        didSet {
+            self.layer.borderWidth = labelborderWidth
+        }
+    }
+    
+    @IBInspectable var labelcornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = labelcornerRadius
+        }
+    }
 }
