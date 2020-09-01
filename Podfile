@@ -7,7 +7,7 @@ target 'workingTitle' do
 
   # Pods for workingTitle
 
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 platform :ios, '10.0'
 
 pod 'GhostTypewriter'
